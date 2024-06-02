@@ -1,4 +1,4 @@
-package Gemini;
+package Gemini.GeminiApiResponse;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

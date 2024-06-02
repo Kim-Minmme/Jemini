@@ -1,4 +1,4 @@
-package Gemini;
+package Gemini.ContentRequestBody;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
