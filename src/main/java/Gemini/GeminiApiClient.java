@@ -1,9 +1,6 @@
 package Gemini;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,24 +12,6 @@ public class GeminiApiClient {
 
     private static final String API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent";
     private static final String API_KEY = System.getenv("GOOGLE_API_KEY");
-
-    public static void main(String[] args) {
-        try {
-            streamContent("Harry Potter.", new StreamContentCallback() {
-                @Override
-                public void onContentReceived(String content) {
-                    System.out.println("Extracted Text: " + content);
-                }
-
-                @Override
-                public void onError(Exception e) {
-                    System.err.println("Error: " + e.getMessage());
-                }
-            });
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public static void streamContent(String prompt, StreamContentCallback callback) throws IOException {
         HttpURLConnection connection = null;
@@ -83,113 +62,5 @@ public class GeminiApiClient {
             }
         }
         return "";
-    }
-
-    private interface StreamContentCallback {
-        void onContentReceived(String content);
-        void onError(Exception e);
-    }
-
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    static class GeminiApiResponse {
-        private java.util.List<ApiResponseCandidate> candidates;
-
-        public java.util.List<ApiResponseCandidate> getCandidates() {
-            return candidates;
-        }
-
-        public void setCandidates(java.util.List<ApiResponseCandidate> candidates) {
-            this.candidates = candidates;
-        }
-    }
-
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    static class ApiResponseCandidate {
-        private ApiResponseContent content;
-
-        public ApiResponseContent getContent() {
-            return content;
-        }
-
-        public void setContent(ApiResponseContent content) {
-            this.content = content;
-        }
-    }
-
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    static class ApiResponseContent {
-        private java.util.List<ApiResponsePart> parts;
-
-        public java.util.List<ApiResponsePart> getParts() {
-            return parts;
-        }
-
-        public void setParts(java.util.List<ApiResponsePart> parts) {
-            this.parts = parts;
-        }
-    }
-
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    static class ApiResponsePart {
-        private String text;
-
-        public String getText() {
-            return text;
-        }
-
-        public void setText(String text) {
-            this.text = text;
-        }
-    }
-
-    static class ContentRequestBody {
-        @JsonProperty("contents")
-        private RequestContent[] contents;
-
-        public ContentRequestBody(String text) {
-            this.contents = new RequestContent[]{new RequestContent(text)};
-        }
-
-        public RequestContent[] getContents() {
-            return contents;
-        }
-
-        public void setContents(RequestContent[] contents) {
-            this.contents = contents;
-        }
-    }
-
-    static class RequestContent {
-        @JsonProperty("parts")
-        private RequestPart[] parts;
-
-        public RequestContent(String text) {
-            this.parts = new RequestPart[]{new RequestPart(text)};
-        }
-
-        public RequestPart[] getParts() {
-            return parts;
-        }
-
-        public void setParts(RequestPart[] parts) {
-            this.parts = parts;
-        }
-    }
-
-    static class RequestPart {
-        @JsonProperty("text")
-        private String text;
-
-        public RequestPart(String text) {
-            this.text = text;
-        }
-
-        public String getText() {
-            return text;
-        }
-
-        public void setText(String text) {
-            this.text = text;
-        }
     }
 }
