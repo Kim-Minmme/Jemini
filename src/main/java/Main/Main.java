@@ -1,6 +1,6 @@
-package Main;
+package main;
 
-import GUI.LoginFrame;
+import gui.LoginFrame;
 
 import javax.swing.SwingUtilities;
 

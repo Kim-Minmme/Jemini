@@ -1,10 +1,10 @@
-package GUI;
+package gui;
 
-import DB.DiaryEntryDao;
-import DB.UserDao;
-import DB.Models.DiaryEntry;
-import Gemini.GeminiApiClient;
-import Gemini.StreamContentCallback;
+import db.DiaryEntryDao;
+import db.UserDao;
+import db.models.DiaryEntry;
+import gemini.GeminiApiClient;
+import gemini.StreamContentCallback;
 
 import javax.swing.*;
 import java.awt.*;

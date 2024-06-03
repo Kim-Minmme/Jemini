@@ -1,4 +1,4 @@
-package DB.Models;
+package db.models;
 
 public class DiaryEntry {
     private int id;

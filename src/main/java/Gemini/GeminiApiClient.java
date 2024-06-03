@@ -1,9 +1,9 @@
-package Gemini;
+package gemini;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import Gemini.ContentRequestBody.ContentRequestBody;
-import Gemini.GeminiApiResponse.ApiResponseCandidate;
-import Gemini.GeminiApiResponse.GeminiApiResponse;
+import gemini.request.ContentRequestBody;
+import gemini.response.ApiResponseCandidate;
+import gemini.response.GeminiApiResponse;
 
 import java.io.BufferedReader;
 import java.io.IOException;

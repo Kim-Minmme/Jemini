@@ -1,4 +1,4 @@
-package Gemini;
+package gemini;
 
 public interface StreamContentCallback {
     void onContentReceived(String content);

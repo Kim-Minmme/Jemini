@@ -1,6 +1,6 @@
-package DB;
+package db;
 
-import DB.Models.DiaryEntry;
+import db.models.DiaryEntry;
 
 import java.sql.*;
 import java.util.ArrayList;

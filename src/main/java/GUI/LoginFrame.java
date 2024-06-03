@@ -1,6 +1,6 @@
-package GUI;
+package gui;
 
-import DB.UserDao;
+import db.UserDao;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
