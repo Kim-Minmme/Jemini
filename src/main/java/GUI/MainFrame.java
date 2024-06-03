@@ -31,6 +31,7 @@ public class MainFrame extends JFrame {
         JPanel diaryPanel = new JPanel(new BorderLayout());
         diaryPanel.setBorder(BorderFactory.createTitledBorder("Write Your Diary Entry"));
         diaryTextArea = new JTextArea();
+        diaryTextArea.setLineWrap(true);
         JScrollPane diaryScrollPane = new JScrollPane(diaryTextArea);
         diaryPanel.add(diaryScrollPane, BorderLayout.CENTER);
 
@@ -38,6 +39,7 @@ public class MainFrame extends JFrame {
         JPanel analysisPanel = new JPanel(new BorderLayout());
         analysisPanel.setBorder(BorderFactory.createTitledBorder("AI Analysis"));
         analysisTextArea = new JTextArea();
+        analysisTextArea.setLineWrap(true);
         analysisTextArea.setEditable(false);
         JScrollPane analysisScrollPane = new JScrollPane(analysisTextArea);
         analysisPanel.add(analysisScrollPane, BorderLayout.CENTER);
