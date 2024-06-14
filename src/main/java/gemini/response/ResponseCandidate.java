@@ -3,14 +3,14 @@ package gemini.response;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ApiResponseCandidate {
-    private ApiResponseContent content;
+public class ResponseCandidate {
+    private ResponseContent content;
 
-    public ApiResponseContent getContent() {
+    public ResponseContent getContent() {
         return content;
     }
 
-    public void setContent(ApiResponseContent content) {
+    public void setContent(ResponseContent content) {
         this.content = content;
     }
 }

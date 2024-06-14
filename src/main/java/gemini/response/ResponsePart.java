@@ -3,7 +3,7 @@ package gemini.response;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ApiResponsePart {
+public class ResponsePart {
     private String text;
 
     public String getText() {

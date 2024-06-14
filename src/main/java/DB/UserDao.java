@@ -34,11 +34,7 @@ public class UserDao {
             stmt.executeUpdate();
             return true;
         } catch (SQLException e) {
-            if (e.getErrorCode() == 19) { // SQLITE_CONSTRAINT
-                return false;
-            } else {
-                throw new SQLException("Failed to register user", e);
-            }
+        	throw new SQLException("Failed to register user", e);
         }
     }
 

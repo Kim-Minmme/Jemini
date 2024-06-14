@@ -1,8 +1,8 @@
 package gemini;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import gemini.request.ContentRequestBody;
-import gemini.response.ApiResponseCandidate;
+import gemini.request.RequestBody;
+import gemini.response.ResponseCandidate;
 import gemini.response.GeminiApiResponse;
 
 import java.io.BufferedReader;
@@ -28,10 +28,9 @@ public class GeminiApiClient {
                 connection.setRequestProperty("Content-Type", "application/json");
                 connection.setDoOutput(true);
 
-                String json = new ObjectMapper().writeValueAsString(new ContentRequestBody(prompt));
-                try (OutputStream os = connection.getOutputStream()) {
-                    os.write(json.getBytes());
-                }
+                String json = new ObjectMapper().writeValueAsString(new RequestBody(prompt));
+                OutputStream os = connection.getOutputStream();
+                os.write(json.getBytes());
 
                 reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 String line;
@@ -65,7 +64,7 @@ public class GeminiApiClient {
         ObjectMapper mapper = new ObjectMapper();
         GeminiApiResponse response = mapper.readValue(jsonResponse, GeminiApiResponse.class);
         if (response != null && response.getCandidates() != null && !response.getCandidates().isEmpty()) {
-            ApiResponseCandidate candidate = response.getCandidates().get(0);
+            ResponseCandidate candidate = response.getCandidates().get(0);
             if (candidate != null && candidate.getContent() != null && candidate.getContent().getParts() != null && !candidate.getContent().getParts().isEmpty()) {
                 return candidate.getContent().getParts().get(0).getText();
             }

@@ -27,10 +27,9 @@ public class DatabaseHelper {
             String createEntriesTable = "CREATE TABLE IF NOT EXISTS diary_entries (" +
                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "user_id INTEGER," +
+                    "title TEXT NOT NULL," +
                     "date TEXT," +
                     "content TEXT," +
-                    "tags TEXT," +
-                    "mood TEXT," +
                     "FOREIGN KEY(user_id) REFERENCES users(id)" +
                     ");";
             stmt.execute(createUsersTable);

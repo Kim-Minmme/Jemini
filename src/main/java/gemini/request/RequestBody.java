@@ -2,11 +2,11 @@ package gemini.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class ContentRequestBody {
+public class RequestBody {
     @JsonProperty("contents")
     private RequestContent[] contents;
 
-    public ContentRequestBody(String text) {
+    public RequestBody(String text) {
         this.contents = new RequestContent[]{new RequestContent(text)};
     }
 

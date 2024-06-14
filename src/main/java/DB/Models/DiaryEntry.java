@@ -2,19 +2,17 @@ package db.models;
 
 public class DiaryEntry {
     private int id;
-    private int userId;
+    private String title;
     private String date;
     private String content;
-    private String tags;
-    private String mood;
+    private int userId;
 
-    public DiaryEntry(int id, int userId, String date, String content, String tags, String mood) {
+    public DiaryEntry(int id, String title, String date, String content, int userId) {
         this.id = id;
-        this.userId = userId;
+        this.title = title;
         this.date = date;
         this.content = content;
-        this.tags = tags;
-        this.mood = mood;
+        this.userId = userId;
     }
 
     public int getId() {
@@ -25,12 +23,12 @@ public class DiaryEntry {
         this.id = id;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getTitle() {
+        return title;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDate() {
@@ -49,19 +47,16 @@ public class DiaryEntry {
         this.content = content;
     }
 
-    public String getTags() {
-        return tags;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setTags(String tags) {
-        this.tags = tags;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public String getMood() {
-        return mood;
-    }
-
-    public void setMood(String mood) {
-        this.mood = mood;
+    @Override
+    public String toString() {
+        return title;
     }
 }

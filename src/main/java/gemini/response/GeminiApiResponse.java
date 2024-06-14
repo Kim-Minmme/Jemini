@@ -5,13 +5,13 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GeminiApiResponse {
-    private List<ApiResponseCandidate> candidates;
+    private List<ResponseCandidate> candidates;
 
-    public List<ApiResponseCandidate> getCandidates() {
+    public List<ResponseCandidate> getCandidates() {
         return candidates;
     }
 
-    public void setCandidates(List<ApiResponseCandidate> candidates) {
+    public void setCandidates(List<ResponseCandidate> candidates) {
         this.candidates = candidates;
     }
 }
